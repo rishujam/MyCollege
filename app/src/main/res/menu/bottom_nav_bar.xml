@@ -7,10 +7,13 @@
         android:icon="@drawable/ic_home"/>
 
     <item
-        android:id="@+id/itemMessage"
-        android:title="Message"
+        android:id="@+id/itemPublic"
+        android:title="Public"
+        android:icon="@drawable/ic_global"/>
+    <item
+        android:id="@+id/itemFriend"
+        android:title="Friends"
         android:icon="@drawable/ic_message"/>
-
     <item
         android:id="@+id/itemProfile"
         android:title="Profile"

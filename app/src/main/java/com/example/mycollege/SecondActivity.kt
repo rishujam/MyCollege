@@ -12,7 +12,8 @@ class SecondActivity : AppCompatActivity() {
 
 
     val homeFragment =HomeFragment()
-    val chatFragment =ChatFragment()
+    val publicFragment =PublicChatFragment()
+    val friendChatFragment=FriendChatFragment()
     val profileFragment =ProfileFragment()
     val buyFrag =BuyFragment()
     val create =CreateProjectFrag()
@@ -25,7 +26,8 @@ class SecondActivity : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.itemHome -> setCurrentFragment(homeFragment)
-                R.id.itemMessage -> setCurrentFragment(chatFragment)
+                R.id.itemPublic -> setCurrentFragment(publicFragment)
+                R.id.itemFriend ->setCurrentFragment(friendChatFragment)
                 R.id.itemProfile -> setCurrentFragment(profileFragment)
             }
             true
@@ -38,7 +40,7 @@ class SecondActivity : AppCompatActivity() {
                 replace(R.id.flFragment, fragment)
                 commit()
             }
-    private fun setCurrentFragBackStack(fragment:Fragment)=
+    private fun setCurrentFragInsideFrag(fragment:Fragment)=
             supportFragmentManager.beginTransaction().apply {
                 addToBackStack("stackkkkkk")
                 replace(R.id.flFragment,fragment)
@@ -52,11 +54,11 @@ class SecondActivity : AppCompatActivity() {
     }
 
     fun openBuyFrag(view:View){
-        setCurrentFragBackStack(buyFrag)
+        setCurrentFragInsideFrag(buyFrag)
     }
 
     fun openCreateFrag(view:View){
-        setCurrentFragBackStack(create)
+        setCurrentFragInsideFrag(create)
     }
 
 }
