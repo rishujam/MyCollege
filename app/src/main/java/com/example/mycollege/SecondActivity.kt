@@ -38,6 +38,12 @@ class SecondActivity : AppCompatActivity() {
                 replace(R.id.flFragment, fragment)
                 commit()
             }
+    private fun setCurrentFragBackStack(fragment:Fragment)=
+            supportFragmentManager.beginTransaction().apply {
+                addToBackStack("stackkkkkk")
+                replace(R.id.flFragment,fragment)
+                commit()
+            }
 
     fun openProfileActivity(view:View){
         Intent(this,UserProfile::class.java).also {
@@ -46,11 +52,11 @@ class SecondActivity : AppCompatActivity() {
     }
 
     fun openBuyFrag(view:View){
-        setCurrentFragment(buyFrag)
+        setCurrentFragBackStack(buyFrag)
     }
 
     fun openCreateFrag(view:View){
-        setCurrentFragment(create)
+        setCurrentFragBackStack(create)
     }
 
 }

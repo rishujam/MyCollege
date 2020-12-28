@@ -88,6 +88,7 @@ class MainActivity : AppCompatActivity() {
         if(auth.currentUser!=null){
             Intent(this,SecondActivity::class.java).also {
                 startActivity(it)
+                finish()
             }
         }
     }
