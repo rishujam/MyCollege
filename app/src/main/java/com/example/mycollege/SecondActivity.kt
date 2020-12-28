@@ -10,13 +10,15 @@ import kotlinx.android.synthetic.main.profilefrag.*
 
 class SecondActivity : AppCompatActivity() {
 
+
+    val homeFragment =HomeFragment()
+    val chatFragment =ChatFragment()
+    val profileFragment =ProfileFragment()
+    val buyFrag =BuyFragment()
+    val create =CreateProjectFrag()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
-
-        val homeFragment =HomeFragment()
-        val chatFragment =ChatFragment()
-        val profileFragment =ProfileFragment()
 
         setCurrentFragment(homeFragment)
 
@@ -41,6 +43,14 @@ class SecondActivity : AppCompatActivity() {
         Intent(this,UserProfile::class.java).also {
             startActivity(it)
         }
+    }
+
+    fun openBuyFrag(view:View){
+        setCurrentFragment(buyFrag)
+    }
+
+    fun openCreateFrag(view:View){
+        setCurrentFragment(create)
     }
 
 }
