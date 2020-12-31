@@ -28,9 +28,9 @@ class UserProfile : AppCompatActivity() {
         tvEmail.text=mail
 
         btnChanges.setOnClickListener {
-            val name =etName.text.toString()
-            val ins =etInstitute.text.toString()
-            val state =etState.text.toString()
+            val name =etName.text.toString().trim()
+            val ins =etInstitute.text.toString().trim()
+            val state =etState.text.toString().trim()
             if(name.isBlank() || ins.isBlank() || state.isBlank()){
                 Toast.makeText(this,"Please Fill required Details",Toast.LENGTH_LONG).show()
             }else{
@@ -53,8 +53,8 @@ class UserProfile : AppCompatActivity() {
             withContext(Dispatchers.Main){
                 Toast.makeText(this@UserProfile,e.message,Toast.LENGTH_LONG).show()
             }
-
         }
 
     }
+
 }

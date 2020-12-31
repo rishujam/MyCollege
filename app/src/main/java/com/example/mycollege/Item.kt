@@ -1,5 +1,7 @@
 package com.example.mycollege
 
-class Item {
-
-}
+data class Item(
+        val image:Int,
+        val title:String,
+        val description:String
+)
