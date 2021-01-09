@@ -2,6 +2,7 @@ package com.example.mycollege
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -16,12 +17,14 @@ import kotlinx.android.synthetic.main.activity_second.*
 import kotlinx.android.synthetic.main.buyfrag.*
 import kotlinx.android.synthetic.main.global_chat_frag.*
 import kotlinx.android.synthetic.main.profilefrag.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import kotlinx.coroutines.tasks.await
-import kotlinx.coroutines.withContext
 import java.lang.Exception
+
+
+/////// BUG : SAVED INSTANCE WHENEVER THE PHONE IS ROTATED DATA IS NOT SAVED ////////////////
+
+
 
 class SecondActivity : AppCompatActivity(){
 
@@ -31,6 +34,7 @@ class SecondActivity : AppCompatActivity(){
     val profileFragment =ProfileFragment()
     val buyFrag =BuyFragment()
     val create =CreateProjectFrag()
+    val hireFrag =HireMentor()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +51,7 @@ class SecondActivity : AppCompatActivity(){
             }
             true
         }
+
     }
 
     private fun setCurrentFragment(fragment: Fragment)=
@@ -71,4 +76,8 @@ class SecondActivity : AppCompatActivity(){
     fun openCreateFrag(view:View){
         setCurrentFragInsideFrag(create)
     }
+    fun openMentorFrag(view:View){
+        setCurrentFragInsideFrag(hireFrag)
+    }
+
 }

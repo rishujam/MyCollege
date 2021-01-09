@@ -4,16 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_second.*
 import kotlinx.android.synthetic.main.buyfrag.*
 
 class BuyFragment :Fragment(R.layout.buyfrag), ItemAdapter.OnItemClickListener{
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onStart() {
         super.onStart()
@@ -31,10 +27,7 @@ class BuyFragment :Fragment(R.layout.buyfrag), ItemAdapter.OnItemClickListener{
         val itemAdapter=ItemAdapter(item,this)
         rvProducts.adapter=itemAdapter
         rvProducts.layoutManager=LinearLayoutManager(context)
-        
     }
-
-
 
     override fun onItemClick(position: Int) {
         Intent(context,ProductActivity::class.java).also {

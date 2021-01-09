@@ -9,23 +9,38 @@
         android:id="@+id/btnBuy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Buy"
+        android:backgroundTint="@color/orange"
         android:onClick="openBuyFrag"
+        android:text="Buy Android Mini Projects"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnCreate"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/btnMentor" />
 
     <Button
         android:id="@+id/btnCreate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create"
+        android:backgroundTint="@color/orange"
         android:onClick="openCreateFrag"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Create Android Project with us"
+        app:layout_constraintBottom_toTopOf="@+id/btnMentor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnBuy"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnMentor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get Mentor"
+        android:onClick="openMentorFrag"
+        app:layout_constraintBottom_toTopOf="@+id/btnBuy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCreate" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

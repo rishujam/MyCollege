@@ -5,5 +5,108 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProductActivity">
-
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tvProductName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    android:padding="16dp"
+                    android:textStyle="bold"
+                    android:text="Product Name"/>
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/vpProductsMedia"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_centerInParent="true"
+                    android:layout_below="@id/tvProductName"/>
+                <me.relex.circleindicator.CircleIndicator3
+                    android:id="@+id/vpCircleIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:background="@color/grey"
+                    android:layout_alignBottom="@id/vpProductsMedia"
+                    android:layout_centerInParent="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Product price"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:paddingLeft="16dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/vpProductsMedia"/>
+                <ImageButton
+                    android:id="@+id/ibAddBookmark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_bookmark"
+                    android:background="@color/white"
+                    android:paddingRight="16dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/vpProductsMedia"/>
+                <Button
+                    android:id="@+id/btnBuyNow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Buy Now"
+                    android:textSize="18sp"
+                    android:layout_marginTop="8dp"
+                    android:layout_below="@id/ibAddBookmark"/>
+                <TextView
+                    android:id="@+id/tvInsideProject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="16dp"
+                    android:text="Inside Project"
+                    android:textSize="18sp"
+                    android:layout_below="@id/btnBuyNow"/>
+                <ImageButton
+                    android:id="@+id/ibShowInsideProject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_downarrow"
+                    android:layout_marginLeft="8dp"
+                    android:background="@color/white"
+                    android:layout_below="@id/btnBuyNow"
+                    android:layout_toRightOf="@id/tvInsideProject"/>
+                <TextView
+                    android:id="@+id/tvInfoInsideProject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:text=""
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_below="@id/tvInsideProject"/>
+                <TextView
+                    android:id="@+id/tvFeatures"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="Features :"
+                    android:textStyle="bold"
+                    android:paddingLeft="16dp"
+                    android:layout_below="@id/tvInfoInsideProject"/>
+                <TextView
+                    android:id="@+id/tvFeatureFull"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:text=""
+                    android:layout_below="@id/tvFeatures"/>
+            </RelativeLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

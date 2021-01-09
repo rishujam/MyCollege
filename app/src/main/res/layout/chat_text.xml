@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:layout_margin="16dp"
+    android:backgroundTint="@color/white"
+    android:elevation="6dp">
+
+    <TextView
+        android:id="@+id/tvUserOnChat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Anonymous"
+        android:textStyle="italic"
+        android:textSize="14sp"
+        android:layout_margin="8dp"/>
+
+    <TextView
+        android:id="@+id/tvChat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/orange"
+        android:layout_marginTop="28dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:fontFamily="sans-serif"
+        android:text="hell"
+        android:textColor="@color/grey"
+        android:textSize="18sp" />
+</androidx.cardview.widget.CardView>

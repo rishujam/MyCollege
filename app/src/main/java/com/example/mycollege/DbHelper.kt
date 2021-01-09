@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper
 
 val DATABASE_NAME ="MyDb"
 val TABLE_NAME ="mails"
-class DbHelper(context:Context) :SQLiteOpenHelper(context, DATABASE_NAME,null,1) {
+class DbHelper(context:Context?) :SQLiteOpenHelper(context, DATABASE_NAME,null,1) {
     override fun onCreate(db: SQLiteDatabase?) {
         val createTable ="CREATE TABLE $TABLE_NAME (email TEXT PRIMARY KEY);"
         db?.execSQL(createTable)
