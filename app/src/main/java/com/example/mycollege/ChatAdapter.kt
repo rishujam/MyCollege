@@ -19,6 +19,7 @@ class ChatAdapter(
     override fun onBindViewHolder(holder: ChatViewHolder, position: Int) {
         holder.itemView.apply {
             tvChat.text=chats[position].msg
+            tvUserOnChat.text =chats[position].username
         }
     }
 

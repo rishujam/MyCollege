@@ -12,21 +12,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Anonymous"
-        android:textStyle="italic"
+        android:textStyle="bold"
         android:textSize="14sp"
         android:layout_margin="8dp"/>
 
     <TextView
         android:id="@+id/tvChat"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/orange"
         android:layout_marginTop="28dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
         android:fontFamily="sans-serif"
         android:text="hell"
         android:textColor="@color/grey"

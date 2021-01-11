@@ -1,5 +1,6 @@
 package com.example.mycollege
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -16,13 +17,12 @@ import java.lang.Exception
 
 class ProfileFragment : Fragment(R.layout.profilefrag) {
 
-    private val db=FirebaseFirestore.getInstance()
+   // private val db=FirebaseFirestore.getInstance()
+    private var dbHelper:DbHelper?=null
 
     override fun onStart() {
         super.onStart()
-        val dbHelper=DbHelper(context)
-        val mail=dbHelper.readData()
-        setData(mail)
+        tvNameShow.text=dbHelper?.readName()
         tvEarn.setOnClickListener {
             Intent(context,EarnActivity::class.java).also {
                 startActivity(it)
@@ -30,19 +30,24 @@ class ProfileFragment : Fragment(R.layout.profilefrag) {
         }
     }
 
-    private fun setData(mail:String) = CoroutineScope(Dispatchers.IO).launch {
-        try {
-            val ref =db.collection(mail).document("user details").get().await()
-            val name =ref.getString("name")
-            withContext(Dispatchers.Main){
-                tvNameShow.text=name
-            }
-        }catch (e: Exception){
-            withContext(Dispatchers.Main){
-                Toast.makeText(context,e.message, Toast.LENGTH_LONG).show()
-            }
-        }
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        dbHelper=DbHelper(context)
     }
+
+//    private fun setUsername(mail:String) = CoroutineScope(Dispatchers.IO).launch {
+//        try {
+//            val ref =db.collection(mail).document("user details").get().await()
+//            val name =ref.getString("name")
+//            withContext(Dispatchers.Main){
+//                tvNameShow.text=name
+//            }
+//        }catch (e: Exception){
+//            withContext(Dispatchers.Main){
+//                Toast.makeText(context,e.message, Toast.LENGTH_LONG).show()
+//            }
+//        }
+//    }
 
 }
 

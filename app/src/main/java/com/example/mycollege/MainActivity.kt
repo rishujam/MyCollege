@@ -23,7 +23,8 @@ const val REQUEST_CODE_SIGN_IN =0
 class MainActivity : AppCompatActivity() {
 
     lateinit var auth:FirebaseAuth
-    lateinit var email:String
+    private lateinit var email:String
+    lateinit var name:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,9 +79,10 @@ class MainActivity : AppCompatActivity() {
             account?.let {
                 googleAuthForFirebase(it)
                 email=account.email.toString()
+                name =account.displayName.toString()
             }
             val db =DbHelper(this@MainActivity)
-            db.insertData(email)
+            db.insertData(email,name)
         }
     }
 

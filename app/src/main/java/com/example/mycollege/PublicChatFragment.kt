@@ -1,6 +1,7 @@
 package com.example.mycollege
 
 import android.app.Activity
+import android.content.Context
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -23,6 +24,7 @@ class PublicChatFragment:Fragment(R.layout.global_chat_frag) {
     private val chats = arrayListOf<TextMessage>()
     private lateinit var message:String
     lateinit var chatAdapter:ChatAdapter
+    private var dbHelper:DbHelper?=null
 
     override fun onStart() {
         super.onStart()
@@ -35,13 +37,19 @@ class PublicChatFragment:Fragment(R.layout.global_chat_frag) {
         button.setOnClickListener {
             hideSoftKeyboard(context as Activity)
             message=etMessage.text.toString().trim()
+            val username =dbHelper?.readName()
             if(message.isNotBlank()){
-                saveChats(TextMessage(message, System.currentTimeMillis()))
+                saveChats(TextMessage(message, System.currentTimeMillis(),username.toString()))
             }else{
                 Toast.makeText(context, "Please write something", Toast.LENGTH_LONG).show()
             }
             etMessage.setText("")
         }
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        dbHelper =DbHelper(context)
     }
 
     private fun saveChats(message: TextMessage) = CoroutineScope(Dispatchers.IO).launch {
@@ -57,7 +65,7 @@ class PublicChatFragment:Fragment(R.layout.global_chat_frag) {
     private fun realtimeChats() = CoroutineScope(Dispatchers.IO).launch {
         chatCollectionRef.orderBy("time").addSnapshotListener { querySnapshot, firebaseFirestoreException ->
             firebaseFirestoreException?.let {
-                Toast.makeText(context, it.message, Toast.LENGTH_LONG).show()             //warning*********  toast on io thread
+                Toast.makeText(context, it.message, Toast.LENGTH_LONG).show()
                 return@addSnapshotListener
             }
             querySnapshot?.let {
@@ -68,6 +76,7 @@ class PublicChatFragment:Fragment(R.layout.global_chat_frag) {
                         chatAdapter.notifyDataSetChanged()
                         rvChatsView.scrollToPosition(chats.size-1)
                     }
+                    rvChatsView.scrollToPosition(chats.size-1)
                 }
             }
         }

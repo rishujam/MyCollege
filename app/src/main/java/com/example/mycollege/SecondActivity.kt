@@ -58,6 +58,7 @@ class SecondActivity : AppCompatActivity(){
             supportFragmentManager.beginTransaction().apply {
                 replace(R.id.flFragment, fragment)
                 commit()
+
             }
     private fun setCurrentFragInsideFrag(fragment:Fragment)=
             supportFragmentManager.beginTransaction().apply {
