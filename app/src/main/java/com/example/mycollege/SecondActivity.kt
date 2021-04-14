@@ -22,9 +22,6 @@ import kotlinx.coroutines.tasks.await
 import java.lang.Exception
 
 
-/////// BUG : SAVED INSTANCE WHENEVER THE PHONE IS ROTATED DATA IS NOT SAVED ////////////////
-
-
 
 class SecondActivity : AppCompatActivity(){
 
